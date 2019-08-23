@@ -1,0 +1,12 @@
+identifier: microwatt
+name: Microwatt
+type: mcu
+arch: powerpc64le
+ram: 1024
+toolchain:
+  - zephyr
+testing:
+  default: true
+  ignore_tags:
+    - net
+    - bluetooth

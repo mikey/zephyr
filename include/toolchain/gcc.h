@@ -251,7 +251,7 @@ do {                                                                    \
 #if defined(_ASMLANGUAGE) && !defined(_LINKER)
 
 #if defined(CONFIG_ARM) || defined(CONFIG_NIOS2) || defined(CONFIG_RISCV) \
-	|| defined(CONFIG_XTENSA)
+	|| defined(CONFIG_XTENSA) || defined(CONFIG_POWERPC)
 #define GTEXT(sym) .global sym; .type sym, %function
 #define GDATA(sym) .global sym; .type sym, %object
 #define WTEXT(sym) .weak sym; .type sym, %function
@@ -396,7 +396,8 @@ do {                                                                    \
 		",%0"                               \
 		"\n\t.type\t" #name ",@object" :  : "n"(value))
 
-#elif defined(CONFIG_NIOS2) || defined(CONFIG_RISCV) || defined(CONFIG_XTENSA)
+#elif defined(CONFIG_NIOS2) || defined(CONFIG_RISCV) || \
+	defined(CONFIG_XTENSA) || defined(CONFIG_POWERPC)
 
 /* No special prefixes necessary for constants in this arch AFAICT */
 #define GEN_ABSOLUTE_SYM(name, value)		\

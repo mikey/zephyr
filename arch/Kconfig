@@ -60,6 +60,11 @@ config ARCH_POSIX
 	select NATIVE_APPLICATION
 	select HAS_COVERAGE_SUPPORT
 
+config POWERPC
+	bool "POWERPC architecture"
+	select ATOMIC_OPERATIONS_BUILTIN
+	select HAS_DTS
+
 endchoice
 
 

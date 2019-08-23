@@ -1,0 +1,31 @@
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+menu "PowerPC Options"
+	depends on POWERPC
+
+config ARCH
+	string
+	default "powerpc64" if 64BIT
+	default "powerpc32"
+
+menu "PowerPC Processor Options"
+
+endmenu
+
+config USE_SWITCH
+	default y
+
+config USE_SWITCH_SUPPORTED
+	default y
+
+config NUM_IRQS
+	int "Upper limit of interrupt numbers/IDs used"
+	range 1 1
+	help
+	  Interrupts available will be 0 to NUM_IRQS-1.
+	  FIXME placeholder for now till we get an IRQ controller
+
+
+endmenu

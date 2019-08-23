@@ -25,6 +25,8 @@
 #include <arch/xtensa/arch.h>
 #elif defined(CONFIG_ARCH_POSIX)
 #include <arch/posix/arch.h>
+#elif defined(CONFIG_POWERPC)
+#include <arch/powerpc/arch.h>
 #else
 #error "Unknown Architecture"
 #endif

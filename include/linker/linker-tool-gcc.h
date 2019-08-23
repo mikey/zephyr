@@ -45,6 +45,24 @@
 	/* Not needed */
 #elif defined(CONFIG_ARCH_POSIX)
 	/* Not needed */
+#elif defined(CONFIG_POWERPC)
+#ifdef CONFIG_64BIT
+#define OUTPUT_ARCH_ "powerpc:common64"
+#if defined(CONFIG_BIG_ENDIAN)
+#define OUTPUT_FORMAT_ "elf64-powerpc"
+#else
+#define OUTPUT_FORMAT_ "elf64-powerpcle"
+#endif
+#else
+#define OUTPUT_ARCH_ "powerpc:common"
+#if defined(CONFIG_BIG_ENDIAN)
+#define OUTPUT_FORMAT_ "elf32-powerpc"
+#else
+#define OUTPUT_FORMAT_ "elf32-powerpcle"
+#endif
+#endif
+	OUTPUT_FORMAT(OUTPUT_FORMAT_, OUTPUT_FORMAT_, OUTPUT_FORMAT_)
+	OUTPUT_ARCH(OUTPUT_ARCH_)
 #else
 	#error Arch not supported.
 #endif

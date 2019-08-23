@@ -71,7 +71,7 @@
     #define PERFOPT_ALIGN .balign  4
 
   #elif defined(CONFIG_NIOS2) || defined(CONFIG_RISCV) || \
-	  defined(CONFIG_XTENSA)
+	  defined(CONFIG_XTENSA) || defined(CONFIG_POWERPC)
     #define PERFOPT_ALIGN .balign 4
 
   #elif defined(CONFIG_ARCH_POSIX)

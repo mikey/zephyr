@@ -1,0 +1,46 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+
+/dts-v1/;
+
+/ {
+	compatible = "microwatt";
+	model = "microwatt";
+	#size-cells = <0x2>;
+	#address-cells = <0x2>;
+
+        uart0: serial@c0002000 {
+                compatible = "microwatt,uart0";
+                reg = <0x0 0xc0002000 0x0 0x10>;
+                reg-names = "control";
+                label = "uart_0";
+                status = "disabled";
+        };
+
+	memory@0 {
+		reg = <0x0 0x0 0x0 0x00100000>;
+		ibm,chip-id = <0x0>;
+		device_type = "memory";
+	};
+
+	cpus {
+		#size-cells = <0x0>;
+		#address-cells = <0x1>;
+
+		PowerPC,POWER9@0 {
+			device_type = "cpu";
+			status = "okay";
+			reg = <0x0>;
+		};
+	};
+
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+	};
+};
+
+&uart0 {
+	status = "okay";
+	current-speed = <115200>;
+	clock-frequency = <16000000>;
+};

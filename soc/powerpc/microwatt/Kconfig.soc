@@ -1,0 +1,5 @@
+config SOC_MICROWATT
+        bool "Microwatt port"
+        help
+	   help me
+
